@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://bupwi5rd81uhc"]
+
+[ext_resource type="Script" uid="uid://cdi86c6l7vr8j" path="res://Scripts/Events/event_6.gd" id="1_i68vt"]
+
+[node name="Event6" type="Node2D"]
+script = ExtResource("1_i68vt")
+
+[node name="AdvisorSprite" type="Sprite2D" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="."]
+offset_left = 523.0
+offset_top = 794.0
+offset_right = 1473.0
+offset_bottom = 1133.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.5
+offset_top = -127.5
+offset_right = 408.5
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DecisionPanel" type="Panel" parent="."]
+offset_left = 524.0
+offset_top = 561.0
+offset_right = 1469.0
+offset_bottom = 782.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DecisionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -33.0
+offset_right = 82.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SupressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "At de våger! Send politiet på saken!!"
+
+[node name="NegotiateButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Inviter lederne av opprøret til forhandlinger. Vi skal nok finne ut av dette."
+
+[node name="PropagandaButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Så tvil hos befolkningen. De skal ikke skjønne hva som er sant eller ikke."
+
+[node name="ConcessionsButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Det er alltids lurt å lytte. Det kan jo hende de har noen gode poeng."
+
+[node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -84.5
+offset_right = 136.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Ferdig"
+
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupressButton" to="." method="_on_supress_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/NegotiateButton" to="." method="_on_negotiate_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/PropagandaButton" to="." method="_on_propaganda_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/ConcessionsButton" to="." method="_on_concessions_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

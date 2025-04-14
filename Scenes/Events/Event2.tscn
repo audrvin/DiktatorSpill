@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds4bi64kfw3v1"]
+
+[ext_resource type="Script" uid="uid://07dng0r4ch2c" path="res://Scripts/Events/event_2.gd" id="1_7n781"]
+[ext_resource type="Theme" uid="uid://c3l7sapp7vk6v" path="res://dialogueBox.tres" id="2_7i20w"]
+
+[node name="Event2" type="Node2D"]
+script = ExtResource("1_7n781")
+
+[node name="AdvisorSprite" type="Sprite2D" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="."]
+offset_left = 523.0
+offset_top = 794.0
+offset_right = 1473.0
+offset_bottom = 1133.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.5
+offset_top = -127.5
+offset_right = 408.5
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7i20w")
+
+[node name="DecisionPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 523.0
+offset_top = 564.0
+offset_right = 1472.0
+offset_bottom = 780.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DecisionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -33.0
+offset_right = 82.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RationButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Rasjoner maten, slik at alle spiser litt mindre."
+
+[node name="ImportButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Importer mat fra utlandet."
+
+[node name="DistributeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Distribuer gratis mat til de fattigste."
+
+[node name="IgnoreButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Ignorer problemet."
+
+[node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -84.5
+offset_right = 136.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Ferdig"
+
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/RationButton" to="." method="_on_ration_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/ImportButton" to="." method="_on_import_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/DistributeButton" to="." method="_on_distribute_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/IgnoreButton" to="." method="_on_ignore_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://lhgtpb4xvj6y"]
+
+[ext_resource type="Script" uid="uid://dhs0bd50i06dl" path="res://Scripts/Events/startEvent.gd" id="1_shc63"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv08n"]
+bg_color = Color(0, 0.451133, 0.132834, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkn8g"]
+bg_color = Color(0.687642, 0.168669, 0, 1)
+
+[node name="startEvent" type="Node2D"]
+script = ExtResource("1_shc63")
+
+[node name="AdvisorSprite" type="Sprite2D" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="."]
+offset_left = 299.0
+offset_top = 794.0
+offset_right = 1621.0
+offset_bottom = 1198.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -624.0
+offset_top = -170.5
+offset_right = 624.0
+offset_bottom = 170.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 36
+
+[node name="DecisionPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 884.0
+offset_top = 575.0
+offset_right = 1157.0
+offset_bottom = 745.0
+
+[node name="Valg" type="HBoxContainer" parent="DecisionPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -83.5
+offset_right = 202.0
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JaButton" type="Button" parent="DecisionPanel/Valg"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_nv08n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nv08n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nv08n")
+text = "Ja"
+
+[node name="NeiButton" type="Button" parent="DecisionPanel/Valg"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = SubResource("StyleBoxFlat_qkn8g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qkn8g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qkn8g")
+text = "Nei"
+
+[node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
+visible = false
+layout_mode = 0
+offset_left = -3.0
+offset_right = 270.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 45
+text = "Ferdig"
+
+[connection signal="pressed" from="DecisionPanel/Valg/JaButton" to="." method="_on_ja_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/Valg/NeiButton" to="." method="_on_nei_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

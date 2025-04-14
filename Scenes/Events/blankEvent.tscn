@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0xsf0m6s7ab0"]
+
+[ext_resource type="Theme" uid="uid://c3l7sapp7vk6v" path="res://dialogueBox.tres" id="2_3ffb4"]
+[ext_resource type="Script" uid="uid://iwvnenucjo6s" path="res://Scripts/Events/blankEvent.gd" id="3_3ffb4"]
+
+[node name="blankEvent" type="Node2D"]
+script = ExtResource("3_3ffb4")
+
+[node name="AdvisorSprite" type="Sprite2D" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="."]
+offset_left = 523.0
+offset_top = 794.0
+offset_right = 1473.0
+offset_bottom = 1133.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.5
+offset_top = -127.5
+offset_right = 408.5
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_3ffb4")
+
+[node name="DecisionPanel" type="Panel" parent="."]
+offset_left = 525.0
+offset_top = 563.0
+offset_right = 1472.0
+offset_bottom = 793.0
+metadata/_edit_group_ = true
+
+[node name="ActionButtonContainer" type="VBoxContainer" parent="DecisionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -33.0
+offset_right = 82.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Action1Button" type="Button" parent="DecisionPanel/ActionButtonContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Undertrykk"
+
+[node name="Action2Button" type="Button" parent="DecisionPanel/ActionButtonContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Tillat"
+
+[node name="Action3Button" type="Button" parent="DecisionPanel/ActionButtonContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Overvåk"
+
+[node name="Action4Button" type="Button" parent="DecisionPanel/ActionButtonContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Imøtekom"
+
+[node name="DoneButton" type="Button" parent="DecisionPanel"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_right = 276.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 45
+text = "Ferdig"
+
+[connection signal="pressed" from="DecisionPanel/ActionButtonContainer/Action1Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="DecisionPanel/ActionButtonContainer/Action2Button" to="." method="_on_button2_pressed"]
+[connection signal="pressed" from="DecisionPanel/ActionButtonContainer/Action3Button" to="." method="_on_button3_pressed"]
+[connection signal="pressed" from="DecisionPanel/ActionButtonContainer/Action4Button" to="." method="_on_button4_pressed"]
+[connection signal="pressed" from="DecisionPanel/DoneButton" to="." method="_on_ferdig_knapp_pressed"]

@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg6dlc4ngwior"]
+
+[ext_resource type="Script" uid="uid://kohr2y4xhi7f" path="res://Scripts/Events/event_3.gd" id="1_xbrlg"]
+
+[node name="Event3" type="Node2D"]
+script = ExtResource("1_xbrlg")
+
+[node name="AdvisorSprite" type="Sprite2D" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="."]
+offset_left = 523.0
+offset_top = 794.0
+offset_right = 1473.0
+offset_bottom = 1133.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.5
+offset_top = -127.5
+offset_right = 408.5
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DecisionPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 524.0
+offset_top = 556.0
+offset_right = 1473.0
+offset_bottom = 778.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DecisionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -33.0
+offset_right = 82.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InvestigateButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Etterforsk saken og straff dem det gjelder. "
+
+[node name="AllowButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Tillat korrupsjonen. Det gjør nok embetsmennene fornøyde."
+
+[node name="BribeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Så lenge de er lojale til meg, er alt vel. Bestikk embedsmennene!"
+
+[node name="ChangeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Gi embetsmennene sparken, og ansett nye, lojale embetsmenn."
+
+[node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -84.5
+offset_right = 136.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Ferdig"
+
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/InvestigateButton" to="." method="_on_investigate_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/AllowButton" to="." method="_on_allow_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/BribeButton" to="." method="_on_bribe_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/ChangeButton" to="." method="_on_replace_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://hyppybp2aoeg"]
+
+[node name="AttributeBar" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1384.0
+offset_bottom = -1120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="1" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="3" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="4" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="5" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="6" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="7" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="8" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="9" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="10" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 4

@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8vgv1moo6fm4"]
+
+[ext_resource type="Script" uid="uid://dhg3guvk6sk3q" path="res://Scripts/Events/militær_handling.gd" id="1_y4xtj"]
+
+[node name="militærHandling" type="Node2D"]
+script = ExtResource("1_y4xtj")
+
+[node name="GeneralSprite" type="Sprite2D" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="."]
+offset_left = 523.0
+offset_top = 794.0
+offset_right = 1473.0
+offset_bottom = 1133.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.5
+offset_top = -127.5
+offset_right = 408.5
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DecisionPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 528.0
+offset_top = 556.0
+offset_right = 1469.0
+offset_bottom = 785.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DecisionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -33.0
+offset_right = 82.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MilitaryButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Naturligvis! Militæret skal få alt de trenger!"
+
+[node name="PoliceButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Det er viktigere at politiet får pengene. Lov og orden er min største prioritet."
+
+[node name="IntelligenceButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Pengene kan brukes bedre på overvåkning!"
+
+[node name="SaveButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Det er nok best om vi sparer pengene for denne gang."
+
+[node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_right = 276.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 45
+text = "Ferdig"
+
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/MilitaryButton" to="." method="_on_military_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/PoliceButton" to="." method="_on_police_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/IntelligenceButton" to="." method="_on_surveil_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

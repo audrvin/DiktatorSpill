@@ -1,0 +1,286 @@
+[gd_scene load_steps=6 format=3 uid="uid://q6rueou80wqx"]
+
+[ext_resource type="Script" uid="uid://cmvqvstl6eevu" path="res://Scripts/attribute_window.gd" id="1_l5ky2"]
+[ext_resource type="LabelSettings" uid="uid://bpc6lqffyxmbd" path="res://statBox.tres" id="2_nfc8k"]
+[ext_resource type="Script" uid="uid://dmhof354xfumd" path="res://Scripts/Labels/ap_label.gd" id="3_a8arf"]
+[ext_resource type="Script" uid="uid://chjcirna1h4ws" path="res://Scripts/attribute_panel.gd" id="4_yp1n2"]
+[ext_resource type="PackedScene" uid="uid://hyppybp2aoeg" path="res://Scenes/attribute_bar.tscn" id="5_awhsp"]
+
+[node name="AttributeWindow" type="Node2D"]
+script = ExtResource("1_l5ky2")
+
+[node name="AttributePanel" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1195.0
+script = ExtResource("4_yp1n2")
+metadata/_edit_lock_ = true
+
+[node name="MainContainer" type="HBoxContainer" parent="AttributePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -354.0
+offset_right = 354.0
+offset_bottom = 1050.0
+grow_horizontal = 2
+
+[node name="MinusButtons" type="VBoxContainer" parent="AttributePanel/MainContainer"]
+layout_mode = 2
+
+[node name="BlankLabel" type="Label" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="EnfMinusButton" type="Button" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "-"
+
+[node name="BlankLabel2" type="Label" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="ProMinusButton" type="Button" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "-"
+
+[node name="BlankLabel3" type="Label" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="IntMinusButton" type="Button" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "-"
+
+[node name="BlankLabel4" type="Label" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="DipMinusButton" type="Button" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "-"
+
+[node name="BlankLabel5" type="Label" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="SocMinusButton" type="Button" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "-"
+
+[node name="BlankLabel6" type="Label" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="InfMinusButton" type="Button" parent="AttributePanel/MainContainer/MinusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "-"
+
+[node name="AttributeContainer" type="VBoxContainer" parent="AttributePanel/MainContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Enforcement" type="VBoxContainer" parent="AttributePanel/MainContainer/AttributeContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="AttributePanel/MainContainer/AttributeContainer/Enforcement"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Maktutøvelse"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AttributeBar" parent="AttributePanel/MainContainer/AttributeContainer/Enforcement" instance=ExtResource("5_awhsp")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Propaganda" type="VBoxContainer" parent="AttributePanel/MainContainer/AttributeContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AttributePanel/MainContainer/AttributeContainer/Propaganda"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Propaganda"
+vertical_alignment = 2
+
+[node name="AttributeBar" parent="AttributePanel/MainContainer/AttributeContainer/Propaganda" instance=ExtResource("5_awhsp")]
+layout_mode = 2
+
+[node name="Intelligence" type="VBoxContainer" parent="AttributePanel/MainContainer/AttributeContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="AttributePanel/MainContainer/AttributeContainer/Intelligence"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Overvåkning"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AttributeBar" parent="AttributePanel/MainContainer/AttributeContainer/Intelligence" instance=ExtResource("5_awhsp")]
+layout_mode = 2
+
+[node name="Diplomacy" type="VBoxContainer" parent="AttributePanel/MainContainer/AttributeContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="AttributePanel/MainContainer/AttributeContainer/Diplomacy"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Diplomati"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AttributeBar" parent="AttributePanel/MainContainer/AttributeContainer/Diplomacy" instance=ExtResource("5_awhsp")]
+layout_mode = 2
+
+[node name="SocialServices" type="VBoxContainer" parent="AttributePanel/MainContainer/AttributeContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="AttributePanel/MainContainer/AttributeContainer/SocialServices"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Sosiale tjenester"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AttributeBar" parent="AttributePanel/MainContainer/AttributeContainer/SocialServices" instance=ExtResource("5_awhsp")]
+layout_mode = 2
+
+[node name="Infrastructure" type="VBoxContainer" parent="AttributePanel/MainContainer/AttributeContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="AttributePanel/MainContainer/AttributeContainer/Infrastructure"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Infrastruktur"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AttributeBar" parent="AttributePanel/MainContainer/AttributeContainer/Infrastructure" instance=ExtResource("5_awhsp")]
+layout_mode = 2
+
+[node name="PlusButtons" type="VBoxContainer" parent="AttributePanel/MainContainer"]
+layout_mode = 2
+
+[node name="BlankLabel" type="Label" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="EnfPlusButton" type="Button" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "+"
+
+[node name="BlankLabel2" type="Label" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="ProPlusButton" type="Button" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "+"
+
+[node name="BlankLabel3" type="Label" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="IntPlusButton" type="Button" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "+"
+
+[node name="BlankLabel4" type="Label" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="DipPlusButton" type="Button" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "+"
+
+[node name="BlankLabel5" type="Label" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="SocPlusButton" type="Button" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "+"
+
+[node name="BlankLabel6" type="Label" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="InfPlusButton" type="Button" parent="AttributePanel/MainContainer/PlusButtons"]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+text = "+"
+
+[node name="ConfirmButton" type="Button" parent="AttributePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -126.0
+offset_right = 151.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Bekreft"
+
+[node name="APLabel" type="Label" parent="."]
+offset_left = 203.0
+offset_top = 85.0
+offset_right = 579.0
+offset_bottom = 234.0
+label_settings = ExtResource("2_nfc8k")
+script = ExtResource("3_a8arf")
+
+[connection signal="pressed" from="AttributePanel/MainContainer/MinusButtons/EnfMinusButton" to="AttributePanel" method="_on_enf_minus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/MinusButtons/ProMinusButton" to="AttributePanel" method="_on_pro_minus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/MinusButtons/IntMinusButton" to="AttributePanel" method="_on_int_minus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/MinusButtons/DipMinusButton" to="AttributePanel" method="_on_dip_minus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/MinusButtons/SocMinusButton" to="AttributePanel" method="_on_soc_minus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/MinusButtons/InfMinusButton" to="AttributePanel" method="_on_inf_minus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/PlusButtons/EnfPlusButton" to="AttributePanel" method="_on_enf_plus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/PlusButtons/ProPlusButton" to="AttributePanel" method="_on_pro_plus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/PlusButtons/IntPlusButton" to="AttributePanel" method="_on_int_plus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/PlusButtons/DipPlusButton" to="AttributePanel" method="_on_dip_plus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/PlusButtons/SocPlusButton" to="AttributePanel" method="_on_soc_plus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/MainContainer/PlusButtons/InfPlusButton" to="AttributePanel" method="_on_inf_plus_button_pressed"]
+[connection signal="pressed" from="AttributePanel/ConfirmButton" to="." method="_on_confirm_button_pressed"]

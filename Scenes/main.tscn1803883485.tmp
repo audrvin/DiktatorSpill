@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3ton30nd4gdy"]
+
+[ext_resource type="Texture2D" uid="uid://dyrfjrn725mb7" path="res://Images/IMG_0048.PNG" id="1_d1ilt"]
+[ext_resource type="Script" uid="uid://blqjrfihyrvxg" path="res://Scripts/events.gd" id="1_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://bov8updvrtgrh" path="res://Images/GameOver.png" id="2_hptm8"]
+[ext_resource type="Script" uid="uid://gykiddw14v1r" path="res://Scripts/ui.gd" id="3_d1ilt"]
+[ext_resource type="LabelSettings" uid="uid://bpc6lqffyxmbd" path="res://statBox.tres" id="4_6iyac"]
+[ext_resource type="PackedScene" uid="uid://q6rueou80wqx" path="res://Scenes/attribute_window.tscn" id="4_hptm8"]
+[ext_resource type="Script" uid="uid://dtau5iv25etn8" path="res://Scripts/Labels/economy.gd" id="5_fdnlq"]
+[ext_resource type="Script" uid="uid://5td85vwot7e4" path="res://Scripts/Labels/control.gd" id="6_jkdf5"]
+[ext_resource type="Script" uid="uid://dqgxbagf057ne" path="res://Scripts/Labels/unrest.gd" id="7_wsu2k"]
+[ext_resource type="Script" uid="uid://1co7ey3xnd68" path="res://Scripts/Labels/skatt.gd" id="8_k12tt"]
+[ext_resource type="Script" uid="uid://8fffgvv67ej7" path="res://Scripts/Labels/date_label.gd" id="9_h1bgf"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1202.0
+texture = ExtResource("1_d1ilt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(961, 602)
+
+[node name="EventHandler" type="Node2D" parent="."]
+script = ExtResource("1_ynf5e")
+
+[node name="GameOverScreen" type="TextureRect" parent="EventHandler"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1197.0
+texture = ExtResource("2_hptm8")
+
+[node name="UI" type="Node2D" parent="."]
+position = Vector2(928, 694)
+script = ExtResource("3_d1ilt")
+
+[node name="UIPanelTop" type="Panel" parent="UI"]
+offset_left = -927.0
+offset_top = -694.0
+offset_right = 993.0
+offset_bottom = -635.0
+
+[node name="AttributeWindow" parent="UI/UIPanelTop" instance=ExtResource("4_hptm8")]
+visible = false
+
+[node name="StatBoxToggleButton" type="Button" parent="UI/UIPanelTop"]
+layout_mode = 0
+offset_left = 1672.0
+offset_right = 1920.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 30
+text = "Oversikt"
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/UIPanelTop/StatBoxToggleButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 59.0
+offset_right = 247.0
+offset_bottom = 255.0
+
+[node name="StatBox" type="VBoxContainer" parent="UI/UIPanelTop/StatBoxToggleButton/PanelContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 1
+
+[node name="Economy" type="Label" parent="UI/UIPanelTop/StatBoxToggleButton/PanelContainer/StatBox"]
+layout_mode = 2
+text = "Økonomi:"
+label_settings = ExtResource("4_6iyac")
+script = ExtResource("5_fdnlq")
+
+[node name="Control" type="Label" parent="UI/UIPanelTop/StatBoxToggleButton/PanelContainer/StatBox"]
+layout_mode = 2
+text = "Kontroll: "
+label_settings = ExtResource("4_6iyac")
+script = ExtResource("6_jkdf5")
+
+[node name="Unrest" type="Label" parent="UI/UIPanelTop/StatBoxToggleButton/PanelContainer/StatBox"]
+layout_mode = 2
+text = "Misnøye:"
+label_settings = ExtResource("4_6iyac")
+script = ExtResource("7_wsu2k")
+
+[node name="Tax" type="Label" parent="UI/UIPanelTop/StatBoxToggleButton/PanelContainer/StatBox"]
+layout_mode = 2
+text = "Skatt:"
+label_settings = ExtResource("4_6iyac")
+script = ExtResource("8_k12tt")
+
+[node name="AttributeViewButton" type="Button" parent="UI/UIPanelTop"]
+layout_mode = 0
+offset_left = 1490.0
+offset_top = 1.0
+offset_right = 1669.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 36
+text = "Ressurser"
+
+[node name="DateLabel" type="Label" parent="UI"]
+offset_left = -907.0
+offset_top = -690.0
+offset_right = -578.0
+offset_bottom = -640.0
+theme_override_font_sizes/font_size = 36
+text = "DATO"
+script = ExtResource("9_h1bgf")
+
+[connection signal="pressed" from="UI/UIPanelTop/StatBoxToggleButton" to="UI" method="_on_stat_box_toggle_button_pressed"]
+[connection signal="pressed" from="UI/UIPanelTop/AttributeViewButton" to="UI" method="_on_attribute_view_button_pressed"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://041k7164c8lp"]
+
+[ext_resource type="Script" uid="uid://dvt1pj2g4jb7n" path="res://Scripts/Events/event_1.gd" id="1_cf7fp"]
+[ext_resource type="Theme" uid="uid://c3l7sapp7vk6v" path="res://dialogueBox.tres" id="2_fxybj"]
+
+[node name="Event1" type="Node2D"]
+script = ExtResource("1_cf7fp")
+
+[node name="AdvisorSprite" type="Sprite2D" parent="."]
+
+[node name="DialoguePanel" type="Panel" parent="."]
+offset_left = 523.0
+offset_top = 794.0
+offset_right = 1473.0
+offset_bottom = 1133.0
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.5
+offset_top = -127.5
+offset_right = 408.5
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fxybj")
+
+[node name="DecisionPanel" type="Panel" parent="."]
+offset_left = 524.0
+offset_top = 575.0
+offset_right = 1472.0
+offset_bottom = 793.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DecisionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -33.0
+offset_right = 82.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SupressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Dette kan ikke aksepteres. Fengsle demonstrantene!"
+
+[node name="AllowButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Det går vel bra med noen protester? Da føler de seg i alle fall hørt."
+
+[node name="SurveilButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "La dem holde på, men følg nøye med på hvem som leder protestene!"
+
+[node name="ChangeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Hvis befolkningen ønsker endring, må vi endre oss."
+
+[node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -84.5
+offset_right = 136.5
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Ferdig"
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupressButton" to="." method="_on_supress_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/AllowButton" to="." method="_on_allow_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SurveilButton" to="." method="_on_surveil_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/ChangeButton" to="." method="_on_change_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]
