@@ -50,25 +50,25 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SupressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="QuarantineButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Undertrykk"
+text = "Folket kan ikke bare valse rundt med sykdom i omløp. Sett dem i karantene!"
 
-[node name="AllowButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="VaccinateButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Tillat"
+text = "Den eneste løsningen på en pandemi er vaksiner. Vaksiner folket!"
 
-[node name="SurveilButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="IgnoreButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Overvåk"
+text = "Sykdom går over av seg selv. Vi trenger ikke gjøre noe."
 
-[node name="ChangeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="InformButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Imøtekom"
+text = "Folket må selv løse problemet, men vi kan hjelpe dem med informasjon."
 
 [node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
 visible = false
@@ -87,8 +87,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 45
 text = "Ferdig"
 
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupressButton" to="." method="_on_supress_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/AllowButton" to="." method="_on_allow_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SurveilButton" to="." method="_on_surveil_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/ChangeButton" to="." method="_on_change_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/QuarantineButton" to="." method="_on_quarantine_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/VaccinateButton" to="." method="_on_vaccinate_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/IgnoreButton" to="." method="_on_ignore_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/InformButton" to="." method="_on_inform_button_pressed"]
 [connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

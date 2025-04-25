@@ -39,4 +39,5 @@ func _on_print_money_button_pressed() -> void:
 
 func _on_ferdig_knapp_pressed() -> void:
 	Global.eventDone = true
+	Global.eventDone = true
 	self.queue_free()

@@ -68,18 +68,6 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Det er viktig at folket føler seg hørt. Gjennomfør spørreundersøkelser for å finne ut hva de vil ha."
 
-[node name="SurveilButton" type="Button" parent="DecisionPanel/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "Nå er det ..."
-
-[node name="DiplomacyButton" type="Button" parent="DecisionPanel/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "...."
-
 [connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]
 [connection signal="pressed" from="DecisionPanel/VBoxContainer/SpyButton" to="." method="_on_spy_button_pressed"]
 [connection signal="pressed" from="DecisionPanel/VBoxContainer/SurveyButton" to="." method="_on_survey_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SurveilButton" to="." method="_on_surveil_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/DiplomacyButton" to="." method="_on_diplomacy_button_pressed"]

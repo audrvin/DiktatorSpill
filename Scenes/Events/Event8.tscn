@@ -50,25 +50,25 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SupressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="InvestigateButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Undertrykk"
+text = "Vi må finne ut av hvem som er skyldig. Sett i gang en etterforskning med det samme!"
 
-[node name="AllowButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="RetaliateButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Tillat"
+text = "Ild mot ild! Gå til angrep mot de vi mistenker. Vi har ikke tid å miste."
 
-[node name="SurveilButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="SupportButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Overvåk"
+text = "Det som gjelder nå er å støtte de rammede. Send hjelp til ofrene og deres familier."
 
-[node name="ChangeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="IgnoreButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Imøtekom"
+text = "Vi kan ikke la oss påvirke av terrorister. Ofrene kommer over dette med tiden. Vi trenger ikke gjøre noe."
 
 [node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
 visible = false
@@ -87,8 +87,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 45
 text = "Ferdig"
 
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupressButton" to="." method="_on_supress_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/AllowButton" to="." method="_on_allow_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SurveilButton" to="." method="_on_surveil_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/ChangeButton" to="." method="_on_change_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/InvestigateButton" to="." method="_on_investigate_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/RetaliateButton" to="." method="_on_retaliate_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/IgnoreButton" to="." method="_on_ignore_button_pressed"]
 [connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

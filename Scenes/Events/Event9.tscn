@@ -50,22 +50,22 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SupressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="SuppressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Undertrykk"
 
-[node name="AllowButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="NegotiateButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Tillat"
 
-[node name="SurveilButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="FleeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Overvåk"
 
-[node name="ChangeButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="SupportButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Imøtekom"
@@ -87,8 +87,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 45
 text = "Ferdig"
 
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupressButton" to="." method="_on_supress_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/AllowButton" to="." method="_on_allow_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SurveilButton" to="." method="_on_surveil_button_pressed"]
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/ChangeButton" to="." method="_on_change_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SuppressButton" to="." method="_on_suppress_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/NegotiateButton" to="." method="_on_negotiate_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/FleeButton" to="." method="_on_flee_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
 [connection signal="pressed" from="DecisionPanel/FerdigKnapp" to="." method="_on_ferdig_knapp_pressed"]

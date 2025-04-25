@@ -70,6 +70,7 @@ layout_mode = 2
 text = "Hvis befolkningen ønsker endring, må vi endre oss."
 
 [node name="FerdigKnapp" type="Button" parent="DecisionPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

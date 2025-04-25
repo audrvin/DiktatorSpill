@@ -56,5 +56,6 @@ func _on_change_button_pressed() -> void:
 
 
 func _on_ferdig_knapp_pressed() -> void:
+	Global.phaseChange = true
 	Global.eventDone = true
 	self.queue_free()

@@ -1,19 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3ton30nd4gdy"]
+[gd_scene load_steps=11 format=3 uid="uid://d3ton30nd4gdy"]
 
 [ext_resource type="Texture2D" uid="uid://dyrfjrn725mb7" path="res://Images/IMG_0048.PNG" id="1_d1ilt"]
+[ext_resource type="Script" uid="uid://dm12lh6gi6cgh" path="res://Scenes/main.gd" id="1_hptm8"]
 [ext_resource type="Script" uid="uid://blqjrfihyrvxg" path="res://Scripts/events.gd" id="1_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://bov8updvrtgrh" path="res://Images/GameOver.png" id="2_hptm8"]
 [ext_resource type="Script" uid="uid://gykiddw14v1r" path="res://Scripts/ui.gd" id="3_d1ilt"]
+[ext_resource type="AudioStream" uid="uid://hkljo6w3m1lx" path="res://Sound/bgm.mp3" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://q6rueou80wqx" path="res://Scenes/attribute_window.tscn" id="4_hptm8"]
 [ext_resource type="Script" uid="uid://gublgwmadllq" path="res://Scripts/Labels/stat_box.gd" id="6_6iyac"]
+[ext_resource type="Script" uid="uid://2agv5kba8ph3" path="res://Scripts/menu.gd" id="8_344ge"]
 [ext_resource type="Script" uid="uid://8fffgvv67ej7" path="res://Scripts/Labels/date_label.gd" id="9_h1bgf"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_hptm8")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1202.0
 texture = ExtResource("1_d1ilt")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hptm8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(961, 602)
@@ -96,23 +103,65 @@ theme_override_font_sizes/font_size = 36
 text = "DATO"
 script = ExtResource("9_h1bgf")
 
-[node name="statTest" type="Button" parent="UI"]
+[node name="Menu" type="Panel" parent="UI"]
 visible = false
-offset_left = -816.0
-offset_top = -272.0
-offset_right = -719.0
-offset_bottom = -220.0
-text = "TEST"
+offset_left = -483.0
+offset_top = -605.0
+offset_right = 467.0
+offset_bottom = 105.0
+size_flags_horizontal = 4
+script = ExtResource("8_344ge")
 
-[node name="+1tempEnforcement" type="Button" parent="UI"]
-visible = false
-offset_left = -822.0
-offset_top = -212.0
-offset_right = -716.0
-offset_bottom = -157.0
-text = "+1 temp Enf"
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -219.5
+offset_right = 197.0
+offset_bottom = 219.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="SliderContainer" type="VBoxContainer" parent="UI/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="MusicLabel" type="Label" parent="UI/Menu/VBoxContainer/SliderContainer"]
+layout_mode = 2
+text = "Musikk"
+horizontal_alignment = 1
+
+[node name="MusicHSlider" type="HSlider" parent="UI/Menu/VBoxContainer/SliderContainer"]
+layout_mode = 2
+min_value = -80.0
+max_value = 20.0
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="UI/Menu/VBoxContainer/SliderContainer"]
+layout_mode = 2
+text = "Lydeffekter"
+horizontal_alignment = 1
+
+[node name="SFXHSlider" type="HSlider" parent="UI/Menu/VBoxContainer/SliderContainer"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="UI/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Start på nytt"
+
+[node name="QuitButton" type="Button" parent="UI/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Avslutt"
 
 [connection signal="pressed" from="UI/UIPanelTop/StatBoxToggleButton" to="UI" method="_on_stat_box_toggle_button_pressed"]
 [connection signal="pressed" from="UI/UIPanelTop/AttributeViewButton" to="UI" method="_on_attribute_view_button_pressed"]
-[connection signal="pressed" from="UI/statTest" to="UI" method="_on_stat_test_pressed"]
-[connection signal="pressed" from="UI/+1tempEnforcement" to="UI" method="_on_temp_enforcement_pressed"]
+[connection signal="value_changed" from="UI/Menu/VBoxContainer/SliderContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/VBoxContainer/SliderContainer/SFXHSlider" to="." method="_on_sfxh_slider_value_changed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

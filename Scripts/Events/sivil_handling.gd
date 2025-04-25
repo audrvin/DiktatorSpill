@@ -22,16 +22,19 @@ func _on_ferdig_knapp_pressed() -> void:
 
 
 func _on_spy_button_pressed() -> void:
+	if Global.intelligence > 5:
+		Global.successfulSurveilance = true
+	else:
+		Global.failedSurveilance = true
+	respons.text = "Vi har igangsatt overvåkningen, O store fører!"
 	konkluder()
 
 
 func _on_survey_button_pressed() -> void:
-	konkluder()
-
-
-func _on_surveil_button_pressed() -> void:
-	konkluder()
-
-
-func _on_diplomacy_button_pressed() -> void:
+	if Global.control > 75:
+		pass
+		respons.text = "Folket sier de har det bra, O store fører!"
+	else:
+		Global.demandFOS += 10
+		respons.text = "Folket sier at de ønsker seg større ytringsfrihet, O store fører."
 	konkluder()

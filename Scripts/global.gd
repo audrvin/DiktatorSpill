@@ -6,6 +6,7 @@ var tutorialDone = false
 var valgtPoeng = false
 var gamePhase = 0
 var phaseChange = false
+var gameOver = false
 
 #Date
 var year = 2025
@@ -13,11 +14,11 @@ var date = "1. januar, " + str(year)
 
 
 #Scores
-var control = 74 #0 = Game over, din evne til å undertrykke folket
-var unrest = 51 #Hvor misfornøyde befolkningen er
+var control = 80 #0 = Game over, din evne til å undertrykke folket
+var unrest = 20 #Hvor misfornøyde befolkningen er
 var economy = 100
 var fos = 20 #Freedom of Speech
-var tax = 80
+var tax = 30
 
 
 #Attributes
@@ -53,4 +54,9 @@ var ignoredMilitary = 0
 var debt = false
 var uprising = 0
 var inflation = false
-var internationalRelations = false
+var internationalRelations = 20
+var successfulSurveilance = false
+var failedSurveilance = false
+var demandFOS = 0
+var militaryCoup = false
+var flee = false

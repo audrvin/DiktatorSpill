@@ -40,5 +40,6 @@ func _on_concessions_button_pressed() -> void:
 	gjemValg()
 
 func _on_ferdig_knapp_pressed() -> void:
+	Global.phaseChange = true
 	Global.eventDone = true
 	self.queue_free()

@@ -1,15 +1,15 @@
 extends Node2D
 
 func _ready() -> void:
-	Global.gamePhase = 0
-	game_phase()
+	Global.gamePhase = 0 #Which of the four phases of the game the player is currently at variable gamePhase
+	eventCheck()
 
 func _process(_delta: float) -> void:
-	if Global.phaseChange == true:
-		game_phase()
+	if Global.phaseChange:
+		eventCheck()
 		Global.phaseChange = false
 
-func game_phase():
+func eventCheck():
 	if Global.gamePhase >= 3:
 		phase3()
 	elif Global.gamePhase == 2:
@@ -19,7 +19,18 @@ func game_phase():
 	elif Global.gamePhase == 0:
 		phase0()
 
-func phase3():
+#Phase event functions
+func phase0(): #First event in the cycle, resource allocation
+	Global.styring = true
+	add_child(startEvent)
+
+func phase1(): #Second event in cycle, domestic policy choice
+	add_child(civilEvent)
+
+func phase2(): #Third event, military choice
+	add_child(militaryEvent)
+
+func phase3(): #Final event of cycle, random event
 	if Global.eventDone == true:
 		Global.gamePhase = 0
 		Global.year += 1
@@ -29,27 +40,17 @@ func phase3():
 	else:
 		add_child(randomEvent)
 
-func phase2():
-	add_child(militaryEvent)
-
-func phase1():
-	add_child(civilEvent)
-
-func phase0():
-	Global.styring = true
-	add_child(startEvent)
-
-#Spesielle hendelser som kan inntre utifra tidligere valg
+#Special event that might occur based on global variables
 func specialEvent():
 	if Global.civilServantPlot:
 		pass
 
 
-#Definer hvordan pengebruk og inntekter beregnes ved slutten av året
+#Define how economy is calculated at end of final phase
 func budget():
-	Global.economy -= Global.education 
-	Global.economy -= Global.socialServices 
-	Global.economy += Global.tax
+	Global.economy -= 1#int(Global.education)
+	Global.economy -= 1#int(Global.socialServices)
+	Global.economy += 1#int(Global.tax)
 	for i in Global.tempStats:
 		i = 0
 

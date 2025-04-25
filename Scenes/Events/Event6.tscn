@@ -48,7 +48,7 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SupressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
+[node name="SuppressButton" type="Button" parent="DecisionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "At de våger! Send politiet på saken!!"
@@ -85,7 +85,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 45
 text = "Ferdig"
 
-[connection signal="pressed" from="DecisionPanel/VBoxContainer/SupressButton" to="." method="_on_supress_button_pressed"]
+[connection signal="pressed" from="DecisionPanel/VBoxContainer/SuppressButton" to="." method="_on_suppress_button_pressed"]
 [connection signal="pressed" from="DecisionPanel/VBoxContainer/NegotiateButton" to="." method="_on_negotiate_button_pressed"]
 [connection signal="pressed" from="DecisionPanel/VBoxContainer/PropagandaButton" to="." method="_on_propaganda_button_pressed"]
 [connection signal="pressed" from="DecisionPanel/VBoxContainer/ConcessionsButton" to="." method="_on_concessions_button_pressed"]

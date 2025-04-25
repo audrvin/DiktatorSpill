@@ -28,7 +28,3 @@ func _on_attribute_view_button_pressed() -> void:
 func _on_stat_test_pressed() -> void:
 	print(Global.enforcement)
 	print(Global.tempEnforcement)
-
-
-func _on_temp_enforcement_pressed() -> void:
-	Global.tempEnforcement += 1

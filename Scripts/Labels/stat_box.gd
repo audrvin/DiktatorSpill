@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-#ONREADIES
+#ONREADIES MULIG DETTE IKKE FUNKER
 @onready var eco = Global.economy
 @onready var con = Global.control
 @onready var un = Global.unrest
@@ -8,10 +8,10 @@ extends VBoxContainer
 
 func _process(_delta: float) -> void:
 #Update stat box label values
-	$Economy.text="Økonomi: " + str(eco)
-	$Control.text="Kontroll: " + str(con)
-	$Unrest.text="Misnøye: " + str(un)
-	$Tax.text="Skatt: " + str(tax) + "%"
+	$Economy.text="Økonomi: " + str(Global.economy)
+	$Control.text="Kontroll: " + str(Global.control)
+	$Unrest.text="Misnøye: " + str(Global.unrest)
+	$Tax.text="Skatt: " + str(Global.tax) + "%"
 
 #Set label font size to 32
 	for i in [$Economy, $Control, $Unrest, $Tax]:
